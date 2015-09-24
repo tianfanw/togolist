@@ -1,0 +1,257 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 16px;
+	color: #fff;
+	background-image: url(../image/base-bg.jpg);
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+.navbar-default {
+	border-color: transparent;
+	background-color: #001569;
+}
+
+.navbar-default .navbar-brand {
+	font-family: 'Francois One', sans-serif;
+	color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active {
+	color: #ddd;
+}
+
+.navbar-default .navbar-collapse {
+	border-color: rgba(255,255,255,.02);
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #777;
+	background-color: #777;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: #777;
+}
+
+.navbar-default .nav li a {
+	color: #fff;
+	font-size: 16px;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+	outline: 0;
+	color: #ddd;
+}
+
+@media(min-width:768px) {
+	.navbar-default {
+		padding: 30px 0 20px 0;
+		border: 0;
+		background-color: transparent;
+		-webkit-transition: background .3s;
+		-moz-transition: background .3s;
+		transition: background .3s;
+	}
+
+	.navbar-default .navbar-brand {
+		margin-left: -15px;
+		font-size: 60px;
+		color: #fff;
+		-webkit-transition: background .3s;
+		-moz-transition: background .3s;
+		transition: background .3s;
+	}
+
+	.navbar-default .navbar-nav>.active>a {
+		border-radius: 3px;
+	}
+
+	#logout {
+		font-size: 12px;
+		margin-top: 1px;
+	}
+}
+
+li.avatar a {
+	margin: 8px 10px 10px 10px;
+	padding: 0;
+}
+
+li.avatar a img {
+	width: 40px;
+	border-radius: 40px;
+}
+
+#body-container {
+	position: relative;
+	margin: auto;
+	padding-top: 100px;
+	min-height: 100%;
+}
+
+.footer {
+	position: absolute;
+	right:0;
+	left: 0;
+	font-size: 14px;
+	text-align: center;
+	bottom: 5px;
+}
+
+.error-message {
+	text-align: left;
+	color: #ff0033;
+	margin-bottom: 10px;
+}
+
+.form-group {
+	text-align: left;
+}
+
+.form-group input.form-control, textarea.form-control {
+	border-radius: 0;
+}
+
+.form-group label {
+	font-weight: 400;
+}
+
+.form-group input[type="email"],
+			input[type="password"],
+			input[type="text"] {
+	height: 28px;
+	width: 200px;
+}
+
+.form-group.form-hint {
+	font-size: 12px;
+}
+
+.form-group.form-hint a {
+	color: #ddd;
+}
+.form-group.form-hint a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.form-group.form-submit {
+	margin-top: 20px;
+}
+
+.form-group.form-submit a {
+	font-size: 18px;
+}
+.form-group.form-submit button {
+	min-width: 100px;
+	background: #008000;
+	border-color: #008000;
+	border-radius: 0;
+	font-size: 15px;
+	padding: 2px 20px;
+}
+.form-group.form-submit button:hover,button:active {
+	background: #004000;
+	border-color: #004000;
+}
+
+.form-group.form-submit a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.form-group.form-submit a:hover {
+	color: #ddd;
+}
+
+.form-group .inline-label {
+	text-align: right;
+	clear: both;
+	float:left;
+	margin-right:15px;
+}
+
+#facebook-login {
+	text-align: center;
+}
+
+@media(min-width:768px) {
+	#email-login {
+		float: left;
+		width: 240px;
+		padding-right: 40px;
+		border-right: 2px solid #444;
+	}
+	#facebook-login {
+		padding: 40px 10px 40px 40px;
+		float: right;
+	}
+}
+
+.page-form-container {
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	background: #141A40;
+	margin-bottom: 70px;
+	padding: 20px 40px;
+}
+
+.form-group-right {
+	float: right;
+	margin: 0;
+}
+
+@media(max-width:500px) {
+	#signup .form-group input {
+		width: 150px;
+	}
+}
+
+@media(min-width:768px) {
+	#signin-left {
+		float: left;
+		padding-right: 20px;
+		border-right: 2px solid #444;
+	}
+
+	#signin-right {
+		float: right;
+		margin-left: 20px;
+	}
+
+}
+
+#flash-messages {
+	position: fixed;
+	opacity: 0.9;
+	width: 100%;
+	padding: 0;
+	z-index: 99999;
+}
+
+.alert {
+	margin: 0;
+	border-radius: 0;
+	padding: 10px 30px;
+}
+
+.clearfix {
+	overflow: auto;
+}

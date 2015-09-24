@@ -1,0 +1,49 @@
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(100,100,100,0.5);
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+}
+
+.popup-content {
+    display: inline-block;
+    position: relative;
+    margin: 10% auto;
+    padding: 40px 40px 10px 40px;
+    background: #141A40;
+}
+
+.popup-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.popup-body {
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+}
+
+.popup-body p {
+    max-width: 500px;
+}
+.popup-close {
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.popup-close:hover {
+    color: #ddd;
+}

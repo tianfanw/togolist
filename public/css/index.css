@@ -1,0 +1,138 @@
+body {
+    background-image: url(../image/index-bg.png);
+}
+
+@media(min-width:768px) {
+
+    .navbar-scrolled .navbar-brand {
+        color: #777;
+    }
+
+    .navbar-scrolled .navbar-brand:hover,
+    .navbar-scrolled .navbar-brand:focus,
+    .navbar-scrolled .navbar-brand:active,
+    .navbar-scrolled .navbar-brand.active {
+        color: #000;
+    }
+
+    .navbar-scrolled .nav li a {
+        color: #777;
+    }
+
+    .navbar-scrolled .nav li a:hover,
+    .navbar-scrolled .nav li a:focus {
+        outline: 0;
+        color: #000;
+    }
+
+    .navbar-scrolled {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: -2px 0 1px rgba(0, 0, 0, 0.5);
+    }
+
+}
+
+.main {
+    text-align: center;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    padding: 20px;
+}
+
+.main .search-box {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.main .intro-text {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.main .search-bar {
+    padding-top: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.main .search-form {
+    display: inline-block;
+}
+
+#search-input {
+    width: 200px;
+    padding: 4px;
+    margin-top: 5px;
+    vertical-align: middle;
+    font-size: 16px;
+    border: solid 1px #fff;
+    border-radius: 3px;
+    background-color: #001569;
+}
+
+#search-button {
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 4px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #138000;
+    border-color: #fff;
+}
+
+@media(min-width:768px) {
+    #search-input {
+        width: 500px;
+    }
+}
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 2px;
+    background: white;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.category-container {
+    display: block;
+    text-align: center;
+}
+
+.category {
+    display: inline-block;
+    margin: 0 15px 20px 15px;
+    width: 250px;
+    height: 80px;
+}
+.category img {
+    width: 100%;
+    height: 100%;
+}

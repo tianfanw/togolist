@@ -1,0 +1,38 @@
+#main-wrapper {
+    position: absolute;
+    top: 100px;
+    bottom: 40px;
+    left:0;
+    right:0;
+}
+
+#leftbar-wrapper {
+    float: left;
+    width: 225px;
+    color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#rightbar-wrapper {
+    margin-left:-350px;
+    float: right;
+    width: 225px;
+    color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#content-wrapper {
+    margin-left: 225px;
+    margin-right: 225px;
+    overflow-y: auto;
+    height: 100%;
+    color: #fff;
+    background-color: green;
+    /*background-color: transparent;*/
+}

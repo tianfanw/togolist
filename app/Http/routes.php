@@ -11,11 +11,33 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function() {
+    return view('index');
+});
 
-Route::get('home', 'HomeController@index');
+Route::get('/mylist', 'AccountController@mylist');
+Route::get('/mylocation', 'AccountController@mylocation');
+Route::get('/profile', 'AccountController@profile');
+Route::get('/message', 'AccountController@message');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::resource('/list', 'ListController');
+
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/signup', 'Auth\AuthController@getSignup');
+Route::post('/signup', 'Auth\AuthController@postSignup');
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+Route::get('/password/forgot', 'Auth\PasswordController@getForgotPassword');
+Route::post('/password/forgot', 'Auth\PasswordController@postForgotPassword');
+Route::get('/password/reset', 'Auth\PasswordController@getResetPassword');
+Route::post('/password/reset', 'Auth\PasswordController@postResetPassword');
+
+Route::get('/email/verify', 'Auth\EmailController@verify');
+Route::get('/email/resend', 'Auth\EmailController@resend');
+//Route::controller('/', 'Auth\AuthController');
+
+//Route::controllers([
+//	'auth' => 'Auth\AuthController',
+//	'password' => 'Auth\PasswordController',
+//]);
