@@ -16,8 +16,6 @@
                 <label class="inline-label">Your email:</label>
                 <input type="email" class="form-control" placeholder="Email" name="email"
                        value="{{ $email }}" readonly>
-                {{--<input type="email" class="form-control" placeholder="Email" name="email"--}}
-                       {{--value="aa@aa.aa" readonly>--}}
             </div>
         </div>
         <div class="form-group clearfix">

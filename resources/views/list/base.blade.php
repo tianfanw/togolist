@@ -1,6 +1,7 @@
 @extends('base')
 
 @section('css')
+    <link href="/css/fixed.css" rel="stylesheet">
     <link href="/css/list/base.css" rel="stylesheet">
     <link href="/css/sidebar.css" rel="stylesheet">
 @endsection

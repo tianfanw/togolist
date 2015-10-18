@@ -100,9 +100,9 @@ li.avatar a img {
 
 #body-container {
 	position: relative;
-	margin: auto;
-	padding-top: 100px;
 	min-height: 100%;
+	margin-top: -120px; /*navbar height*/
+	padding-top: 120px;
 }
 
 .footer {
