@@ -6,8 +6,9 @@
     padding: 0 10px;
 }
 
-.navbar-search-input {
-    width: 150px;
+#navbar-search-bar-mobile input.navbar-search-input {
+    margin-top: 12px;
+    width: 130px;
     text-align: center;
     color: #fff;
 }

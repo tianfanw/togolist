@@ -55,10 +55,7 @@
             <textarea class="form-control" rows="3" placeholder="Optional" name="bio"></textarea>
         </div>
         <div class="form-group form-submit">
-            <button type="submit" class="btn btn-primary" style="margin-right: 5px;">
-                Sign Up
-            </button>
-            <img class="ajax-loader" src="/image/ajax-loader.gif" style="display:none;">
+            @include('partials.submit-button', ['name' => 'Sign Up'])
             <a class="static-popup-link" data-popup-id="login" href="/login" style="margin-left: 40px;">Log In</a>
         </div>
     </form>

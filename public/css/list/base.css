@@ -8,31 +8,32 @@
 
 #leftbar-wrapper {
     float: left;
-    width: 225px;
+    width: 230px;
     color: #fff;
     height: 100%;
     overflow-y: auto;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 #rightbar-wrapper {
     margin-left:-350px;
     float: right;
-    width: 225px;
+    width: 230px;
     color: #fff;
     height: 100%;
     overflow-y: auto;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 #content-wrapper {
-    margin-left: 225px;
-    margin-right: 225px;
+    margin-left: 230px;
+    margin-right: 230px;
     overflow-y: auto;
     height: 100%;
     color: #fff;
-    background-color: green;
-    /*background-color: transparent;*/
+    /*background-color: green;*/
+    padding: 0 20px;
+    background-color: transparent;
 }

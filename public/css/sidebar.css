@@ -74,3 +74,16 @@
     border-left-color: #ccc;
     border-right-color: #ccc;
 }
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar a:hover {
+    color: #ddd;
+}
+
+.sidebar a:active {
+    color: #bbb;
+}

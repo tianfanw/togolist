@@ -32,11 +32,8 @@
                        placeholder="Enter your password again" name="password_confirmation" required>
             </div>
         </div>
-        <div class="form-group form-submit">
-            <button type="submit" class="btn btn-primary" style="margin: 0 auto; display: block;">
-                Reset password
-            </button>
-            <img class="ajax-loader" src="/image/ajax-loader.gif" style="display:none;">
+        <div class="form-group form-submit" style="text-align: center">
+            @include('partials.submit-button', ['name' => 'Reset Password'])
         </div>
     </form>
 </div>

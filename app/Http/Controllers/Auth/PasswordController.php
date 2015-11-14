@@ -96,6 +96,11 @@ class PasswordController extends Controller {
 	}
 
 	public function getResetPassword(Request $request) {
+		return view('auth.reset_password')->with(array(
+			'password_reset_token' => 'aaa',
+			'email' => 'bbb'
+		));
+
 		$validator = Validator::make($request->all(), [
 			'uid' => 'required',
 			'token' => 'required',

@@ -31,7 +31,6 @@ class AuthController extends Controller {
 	 *
 	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
 	 * @param  \App\User  $user
-	 * @return void
 	 */
 	public function __construct(Guard $auth, User $user)
 	{

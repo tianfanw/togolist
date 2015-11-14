@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="xsrf-token" content="" />
+
     <title>ToGolist</title>
 
     <link href="/css/normalize.css" rel="stylesheet">
@@ -75,7 +78,7 @@
     <!-- Main -->
     <div class="container" id="body-container">
         @yield('main')
-        
+
         <div class="footer">
             <div class="container">
                 <p>Copyright &copy; 2015 ToGoList Inc. All Rights Reserved. Contact Info:

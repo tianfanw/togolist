@@ -16,11 +16,8 @@
             <input type="email" class="form-control" placeholder="Email" name="email"
                    value="{{ old('email') }}" style="margin-left: 15px;" required>
         </div>
-        <div class="form-group form-submit">
-            <button type="submit" class="btn btn-primary" style="margin-left: 50px;">
-                Send reset link
-            </button>
-            <img class="ajax-loader" src="/image/ajax-loader.gif" style="display:none;">
+        <div class="form-group form-submit" style="text-align: center">
+            @include('partials.submit-button', ['name' => 'Send Reset Link'])
         </div>
     </form>
 </div>

@@ -40,4 +40,34 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->first_name.' '.$this->last_name;
 	}
 
+	/**
+	 * Get all the lists created by the user.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function locationLists() {
+		return $this->hasMany('App\LocationList');
+	}
+
+	/**
+	 * Get locations saved by the user.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public  function locations() {
+		return $this->belongsToMany('App\Location')->withTimestamps();
+	}
+
+	/**
+	 * Return user info.
+	 *
+	 * @return array
+	 */
+	public function info() {
+		return array(
+			"id" => $this->id,
+			"name" => $this->getUsernameAttribute(),
+//			"avatar_url"
+		);
+	}
 }

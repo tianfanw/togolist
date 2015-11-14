@@ -11,7 +11,7 @@ $( document ).ready(function() {
         var $popup_window = $('.popup[id=' + $popup_id + ']');
         $popup_window.css('visibility', 'visible');
         $popup_window.css('display', 'block');
-        $popup_window .fadeTo('0.2s', 1);
+        $popup_window.fadeTo('0.2s', 1);
     });
 
     // Click on cross to close popup window
@@ -21,6 +21,21 @@ $( document ).ready(function() {
             $popup_window.css('visibility', 'hidden');
             $popup_window.css('display', 'none');
         });
+    });
+
+    // Popup dialogs
+    $('div.popup.dialog').find('.popup-close').click(function() {
+        var $popup_window = $(this).parent().parent();
+        $popup_window.off('click', '.confirm');
+    });
+
+    $('div.popup.dialog').find('.cancel').click(function() {
+        var $popup_window = $(this).parent().parent().parent();
+        $popup_window.fadeTo('0.2s', 0, function() {
+            $popup_window.css('visibility', 'hidden');
+            $popup_window.css('display', 'none');
+        });
+        $popup_window.off('click', '.confirm');
     });
 
     // Popup window form ajax submit
@@ -86,5 +101,5 @@ $( document ).ready(function() {
                 }
             }
         });
-    })
+    });
 });

@@ -47,3 +47,31 @@
 .popup-close:hover {
     color: #ddd;
 }
+
+.popup.dialog .popup-content {
+    max-width: 500px;
+}
+
+.popup.dialog .options {
+    margin: 20px 0;
+}
+.popup.dialog .options button.cancel-button {
+    margin-left: 20px;
+}
+
+.photo-viewer {
+    position: fixed;
+    left: -10000px;
+}
+
+.photo-viewer .popup-content {
+    margin: 3% auto;
+    width: 900px;
+    padding: 20px 15px 0px 10px;
+}
+
+.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}

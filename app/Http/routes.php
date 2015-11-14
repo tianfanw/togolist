@@ -20,7 +20,17 @@ Route::get('/mylocation', 'AccountController@mylocation');
 Route::get('/profile', 'AccountController@profile');
 Route::get('/message', 'AccountController@message');
 
-Route::resource('/list', 'ListController');
+Route::resource('/list', 'ListController', ['except' => 'update' ]);
+// Use POST instead of PUT since Symfony has some issue with PUT method reading data from html FormData
+Route::post('/list/{list}', 'ListController@update');
+
+Route::get('/location', 'LocationController@index');
+Route::post('/location', 'LocationController@store');
+Route::delete('/location/{location}', 'LocationController@destroy');
+
+Route::get('/photo', 'PhotoController@index');
+Route::post('/photo', 'PhotoController@store');
+Route::delete('/photo/{photo}', 'PhotoController@destroy');
 
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');

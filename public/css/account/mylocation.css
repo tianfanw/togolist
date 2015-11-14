@@ -1,0 +1,26 @@
+#main-wrapper {
+    position: absolute;
+    top: 100px;
+    bottom: 40px;
+    left:0;
+    right:0;
+}
+
+#menu-wrapper {
+    float: left;
+    width: 230px;
+    color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#content-wrapper {
+    margin-left: 230px;
+    overflow-y: auto;
+    height: 100%;
+    color: #fff;
+    /*background-color: green;*/
+    background-color: transparent;
+}

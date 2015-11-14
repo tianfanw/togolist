@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller {
@@ -18,7 +19,12 @@ class AccountController extends Controller {
 	 */
 	public function mylist()
 	{
-		return view('account.mylist');
+		$loc_lists = Auth::user()->locationlists;
+		$loc_lists_info = array();
+		foreach($loc_lists as $loc_list) {
+			array_push($loc_lists_info, $loc_list->info());
+		}
+		return view('account.mylist')->with('loc_lists', $loc_lists_info);
 	}
 
 	/**

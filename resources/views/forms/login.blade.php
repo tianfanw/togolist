@@ -25,10 +25,7 @@
                 </div>
             </div>
             <div class="form-group form-submit">
-                <button type="submit" class="btn btn-primary" style="margin-right: 5px;">
-                    Login
-                </button>
-                <img class="ajax-loader" src="/image/ajax-loader.gif" style="display:none;">
+                @include('partials.submit-button', ['name' => 'Login'])
                 <a class="static-popup-link" data-popup-id="signup" href="/signup" style="float: right;">Sign up</a>
             </div>
 
