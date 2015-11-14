@@ -252,6 +252,7 @@ class ListController extends Controller {
 			$loc_list->category = $request->category;
 			$loc_list->description = $request->description;
 			$loc_list->private = $request->private;
+			$loc_list->location_count = 0;
 			$ref_num = 1;
 			for ($i = 1; $i <= 5; $i++) {
 				if ($request->has('reference' . $i)) {

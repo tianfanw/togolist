@@ -56,11 +56,11 @@
                         });
                     }
 
-                    google.maps.event.addListenerOnce(map, 'idle', function() {
-                        for(var i = 0; i < saved_locations.length; i++) {
-                            google.maps.event.trigger(saved_locations[i].marker, 'click');
-                        }
-                    });
+                    // google.maps.event.addListenerOnce(map, 'idle', function() {
+                    //     for(var i = 0; i < saved_locations.length; i++) {
+                    //         google.maps.event.trigger(saved_locations[i].marker, 'click');
+                    //     }
+                    // });
                 },
                 error: function(xhr) {
                     console.log("Failed to retrieve locations");

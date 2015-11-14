@@ -28,7 +28,7 @@
                 by <span id="creator-name">{{ $loc_list['creator']['name'] }}</span>, <span id="created_at">{{ $loc_list['created_at'] }}</span> </div>
             <div class="section">
                 <p class="subtitle">Description:</p>
-                <p id="list-description">
+                <p id="list-description" style="width: 550px; text-align: justify;">
                     @if($loc_list['description'])
                         {{ $loc_list['description'] }}
                     @else
@@ -66,7 +66,7 @@
             <div>
                 <a><span class="glyphicon glyphicon-comment icon"></span><div id="comment_count">0</div></a>
             </div>
-            @if( Auth::user()->id == $loc_list['creator']['id'] )
+            @if( Auth::check() && Auth::user()->id == $loc_list['creator']['id'] )
                 <div>
                     <a href="/list/{{ $loc_list['id'] }}/edit"><span class="glyphicon glyphicon-edit icon"></span><div>Edit</div></a>
                 </div>
@@ -125,11 +125,11 @@
                         });
                     }
 
-                    google.maps.event.addListenerOnce(map, 'idle', function() {
-                        for(var i = 0; i < saved_locations.length; i++) {
-                            google.maps.event.trigger(saved_locations[i].marker, 'click');
-                        }
-                    });
+                    // google.maps.event.addListenerOnce(map, 'idle', function() {
+                    //     for(var i = 0; i < saved_locations.length; i++) {
+                    //         google.maps.event.trigger(saved_locations[i].marker, 'click');
+                    //     }
+                    // });
                 },
                 error: function(xhr) {
                     console.log("Failed to retrieve locations");

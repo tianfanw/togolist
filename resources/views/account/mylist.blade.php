@@ -52,9 +52,9 @@
             <div id="list-content" style="display:{{ count($loc_lists) > 0 ? 'block' : 'none' }};">
                 <div class="clearfix">
                     <div style="float:left;">
-                        <div class="section">
+                        <div class="section" style="margin-top:0;">
                             <p class="subtitle">Description:</p>
-                            <p id="list-description">
+                            <p id="list-description" style="width: 500px; text-align: justify;">
                                 @if(count($loc_lists) > 0)
                                     @if($loc_lists[0]['description'])
                                         {{ $loc_lists[0]['description'] }}

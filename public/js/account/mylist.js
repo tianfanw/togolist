@@ -59,6 +59,7 @@ function getLocations(list_id) {
         saved_locations[i].clear();
     }
     saved_locations = [];
+    $('#location-name-list').find('.hint').show();
     $.ajax({
         type: 'GET',
         url: '/location',
@@ -84,11 +85,11 @@ function getLocations(list_id) {
                 });
             }
 
-            google.maps.event.addListenerOnce(map, 'idle', function() {
-                for(var i = 0; i < saved_locations.length; i++) {
-                    google.maps.event.trigger(saved_locations[i].marker, 'click');
-                }
-            });
+            // google.maps.event.addListenerOnce(map, 'idle', function() {
+            //     for(var i = 0; i < saved_locations.length; i++) {
+            //         google.maps.event.trigger(saved_locations[i].marker, 'click');
+            //     }
+            // });
         },
         error: function(xhr) {
             console.log("Failed to retrieve locations");
