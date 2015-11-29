@@ -392,7 +392,13 @@ Location.prototype.clear = function() {
         this.location_div.find('input.delete').val(1);
         this.location_div.attr('display', 'none');
     } else {
-        saved_locations.splice(i, 1)[0];
+        var i;
+        for(i = 0; i < saved_locations.length; i++) {
+            if(saved_locations[i].place_id == this.place_id) break;
+        }
+        if( i < saved_locations.length ) {
+            saved_locations.splice(i, 1)[0];
+        }
         this.location_div.remove();
         delete this.photo_viewer;
     }

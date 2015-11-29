@@ -44,7 +44,7 @@
                 @for($i = 0; $i < count($loc_lists); $i++)
                     <tr class="list-info" data-list-id="{{ $loc_lists[$i]['id'] }}">
                         <td>
-                            <h3>{{ $loc_lists[$i]['name'] }}</h3>
+                            <h3 class="list-name">{{ $loc_lists[$i]['name'] }}</h3>
                             <p>{{ $loc_lists[$i]['location_count'] }} Locations, By {{ $loc_lists[$i]['creator']['name'] }}, {{ $loc_lists[$i]['created_at'] }}</p>
                         </td>
                         <td>
@@ -149,6 +149,7 @@
             </div>
         </div>
     </div>
+    @include('partials.delete-dialog')
 @endsection
 
 @section('javascript')

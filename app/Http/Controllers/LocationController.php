@@ -78,6 +78,7 @@ class LocationController extends Controller {
 					]]);
 			} else {
 				session()->flash('message', $this->getSaveFailedMessage());
+				session()->flash('error', true);
 				session()->flash('is_important', false);
 				return redirect($this->redirectPath());
 			}
@@ -112,6 +113,7 @@ class LocationController extends Controller {
 					]]);
 			} else {
 				session()->flash('message', $this->getDeleteFailedMessage());
+				session()->flash('error', true);
 				session()->flash('is_important', false);
 				return redirect($this->redirectPath());
 			}

@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Log;
 use Auth;
 use App\Location;
 use App\Photo;
@@ -108,7 +109,9 @@ class PhotoController extends Controller {
 		$photo = Photo::find($id);
 		if($photo && $photo->user_id == Auth::user()->id) {
 			// returning null means deletion success
-			if(!$photo->delete()) {
+			$ret = $photo->delete();
+			Log::Info($ret);
+			if(!$ret) {
 				$success = true;
 			}
 		}
@@ -137,6 +140,7 @@ class PhotoController extends Controller {
 					]]);
 			} else {
 				session()->flash('message', $this->getDeleteFailedMessage());
+				session()->flash('error', true);
 				session()->flash('is_important', false);
 				return redirect($this->redirectPath());
 			}

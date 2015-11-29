@@ -449,9 +449,51 @@ class ListController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id, Request $request)
 	{
-		return view('list.base');
+		$loc_list = LocationList::find($id);
+		if(!$loc_list) {
+			abort(404);
+		}
+		$creator = $loc_list->creator;
+		if(!$creator) {
+			abort(404);
+		}
+		if($creator->id != Auth::user()->id) {
+			abort(401);
+		}
+
+		$ret = $loc_list->delete();
+		Log::Info($ret);
+
+		if ($request->ajax()) {
+			return response()->json([
+				'error' => false,
+				'flash_message' => [
+					'error' => false,
+					'message' => $this->getDeleteSuccessMessage($loc_list->name),
+					'is_important' => false,
+				]]);
+		} else {
+			session()->flash('message', $this->getDeleteSuccessMessage($loc_list->name));
+			session()->flash('is_important', false);
+			return redirect($this->redirectPath());
+		}
+
+//			if ($request->ajax()) {
+//				return response()->json([
+//					'error' => true,
+//					'flash_message' => [
+//						'error' => true,
+//						'message' => $this->getDeleteFailedMessage($loc_list->name),
+//						'is_important' => false,
+//					]]);
+//			} else {
+//				session()->flash('message', $this->getDeleteFailedMessage($loc_list->name));
+//				session()->flash('error', true);
+//				session()->flash('is_important', false);
+//				return redirect($this->redirectPath());
+//			}
 	}
 
 	/**
@@ -472,5 +514,40 @@ class ListController extends Controller {
 	protected function getListUpdatedMessage($list_name)
 	{
 		return 'List '.$list_name.' has been successfully updated!';
+	}
+
+	/**
+	 * Get the list delete success message.
+	 *
+	 * @return string
+	 */
+	protected function getDeleteSuccessMessage($list_name)
+	{
+		return 'List '.$list_name.' has been successfully deleted!';
+	}
+
+	/**
+	 * Get the list delete failed message.
+	 *
+	 * @return string
+	 */
+	protected function getDeleteFailedMessage($list_name)
+	{
+		return 'Failed to delete List '.$list_name.'.';
+	}
+
+	/**
+	 * Get redirect path.
+	 *
+	 * @return string
+	 */
+	public function redirectPath()
+	{
+		if (property_exists($this, 'redirectPath'))
+		{
+			return $this->redirectPath;
+		}
+
+		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/mylist';
 	}
 }
