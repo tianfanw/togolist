@@ -37,14 +37,24 @@
         </div>
         <div id="list-wrapper">
             @if(count($loc_lists) == 0)
-                <div>No lists found.</div>
+            <div>No lists found.</div>
             @else
+            <table>
+                <tbody>
                 @for($i = 0; $i < count($loc_lists); $i++)
-                    <div class="list-info {{ $i == 0 ? 'active' : '' }}" data-list-id="{{ $loc_lists[$i]['id'] }}">
-                        <h3>{{ $loc_lists[$i]['name'] }}</h3>
-                        <p>{{ $loc_lists[$i]['location_count'] }} Locations, By {{ $loc_lists[$i]['creator']['name'] }}, {{ $loc_lists[$i]['created_at'] }}</p>
-                    </div>
+                    <tr class="list-info" data-list-id="{{ $loc_lists[$i]['id'] }}">
+                        <td>
+                            <h3>{{ $loc_lists[$i]['name'] }}</h3>
+                            <p>{{ $loc_lists[$i]['location_count'] }} Locations, By {{ $loc_lists[$i]['creator']['name'] }}, {{ $loc_lists[$i]['created_at'] }}</p>
+                        </td>
+                        <td>
+                            <span class="glyphicon glyphicon-share-alt action-icon share"></span><br>
+                            <span class="glyphicon glyphicon-remove action-icon delete"></span>
+                        </td>
+                    </tr>
                 @endfor
+                </tbody>
+            </table>
             @endif
         </div>
         <div id="content-wrapper">
@@ -128,6 +138,7 @@
                     <div id="map-wrapper">
                         <div id="location-name-list">
                             <div class="hint">No location added for the list.</div>
+                            <table><tbody></tbody></table>
                         </div>
                         <div style="overflow:hidden;">
                             <div id="map"></div>

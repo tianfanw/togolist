@@ -71,7 +71,8 @@ Location.prototype.searchMarkerContent = function() {
 
 Location.prototype.viewMarkerContent = function() {
     return '<div class="place-info-window search-place" style="text-align:center;" data-place-id="' + this.place_id + '">' +
-        '<div style="margin-top:10px;"><img class="photo-preview" src="" ></div>' +
+        '<div style="margin-top:10px;">' +
+        '<div class="photo-preview"></div>' +
         '<h5>' + this.name + '</h5>' +
         '</div>';
 }
@@ -113,7 +114,7 @@ Location.prototype.createMarker = function(type) {
         position: {lat: this.lat, lng: this.lng},
     });
 
-    var min_height = (type == 'view') ? 30 : 100;
+    var min_height = (type == 'view') ? 10 : 100;
     // Create info window
     var infowindow = new InfoBubble({
         map: map,
@@ -221,21 +222,23 @@ Location.prototype.clearMarker = function() {
     this.marker.setMap(null);
     this.marker.infowindow.close();
     this.marker.infowindow.onRemove();
+    this.marker.infowindow = {};
     this.marker.listeners.forEach(function(listener) {
         listener.remove();
     });
+    this.marker = {};
 }
 
 Location.prototype.createNameDiv = function() {
     this.name_div = $(
-        '<div class="location-name" data-place-id="' + this.place_id + '">' +
-            '<span>' + this.name + '</span>' +
-        '</div>');
+        '<tr class="location-name" data-place-id="' + this.place_id + '">' +
+            '<td>' + this.name + '</td>' +
+        '</tr>');
     if(this.editable) {
-        this.name_div.append('<span class="glyphicon glyphicon-remove delete"></span>');
+        this.name_div.append('<td><span class="glyphicon glyphicon-remove action-icon delete"></span></td>');
         this.name_div.on('click', '.delete', this.removeFromList.bind(this));
     } else {
-        this.name_div.append('<span class="glyphicon glyphicon-plus save"></span>');
+        this.name_div.append('<td><span class="glyphicon glyphicon-plus action-icon save"></span></td>');
         var location = this;
         this.name_div.on('click', '.save', function() {
             $.ajax({
@@ -254,7 +257,7 @@ Location.prototype.createNameDiv = function() {
             });
         });
     }
-    this.name_div.appendTo('#location-name-list');
+    $('#location-name-list').find('tbody').append(this.name_div);
 
     var location = this;
     this.name_div.on('click', function() {
@@ -265,6 +268,8 @@ Location.prototype.createNameDiv = function() {
         location.marker.infowindow.open(map, location.marker);
         location.marker.infowindow.is_open = true;
         location.marker.infowindow.flash = false;
+        $('#location-name-list').find('tr.active').removeClass('active');
+        location.name_div.addClass('active');
     });
 }
 
@@ -344,21 +349,28 @@ Location.prototype.addToList = function() {
     } else {
         // ajax request to get photos and create location div to contain form and photo viewer
         this.createLocationDiv();
-        var query = {};
-        if(this.id) query['location_id'] = this.id;
-        else query['place_id'] = this.place_id;
-        var location = this;
-        $.ajax({
-            type: 'GET',
-            url: '/photo',
-            data: query,
-            success: function(photos) {
-                location.photo_viewer = new PhotoViewer(location, photos);
-            },
-            error: function(xhr) {
-                location.photo_viewer = new PhotoViewer(location, []);
-            }
-        });
+        if(!this.photos) {
+            var query = {};
+            if (this.id) query['location_id'] = this.id;
+            else query['place_id'] = this.place_id;
+            if (this.user_id) query['user_id'] = this.user_id;
+            var location = this;
+            $.ajax({
+                type: 'GET',
+                url: '/photo',
+                data: query,
+                success: function (photos) {
+                    location.photos = photos;
+                    location.photo_viewer = new PhotoViewer(location, photos);
+                },
+                error: function (xhr) {
+                    location.photos = [];
+                    location.photo_viewer = new PhotoViewer(location, []);
+                }
+            });
+        } else {
+            this.photo_viewer = new PhotoViewer(this, this.photos);
+        }
     }
     saved_locations.push(this);
     // Add name div to location name list
@@ -449,10 +461,11 @@ Location.prototype.updatePhotoPreview = function(src) {
     }
     var preview_div = this.marker.infowindow.content_.getElementsByClassName('photo-preview');
     if (preview_div.length > 0) {
-        preview_div[0].src = src;
-        preview_div[0].height = 100;
-        preview_div[0].width = 150;
-        preview_div[0].style.cursor = 'pointer';
+        $(preview_div).prepend('<img src="' + src + '" height="100px" width="150px" style="cursor:pointer;" >');
+        //preview_div[0].src = src;
+        //preview_div[0].height = 100;
+        //preview_div[0].width = 150;
+        //preview_div[0].style.cursor = 'pointer';
     }
 }
 

@@ -77,6 +77,7 @@
         <div id="map-wrapper">
             <div id="location-name-list">
                 <div class="hint">No location added for the list.</div>
+                <table><tbody></tbody></table>
             </div>
             <div style="overflow:hidden;">
                 <div id="map"></div>
@@ -110,6 +111,7 @@
                         locations[i].editable = false;
                         locations[i].type = 'view';
                         locations[i].is_old = true;
+                        locations[i].user_id = {{ $loc_list['creator']['id'] }};
                         var location = new Location(locations[i]);
                         location.addToList();
                         var latlng = new google.maps.LatLng(location.lat, location.lng);

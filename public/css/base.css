@@ -415,6 +415,15 @@ h2, h3, p {
 	margin-top: 2px;
 }
 
+.action-icon{
+	color: #001569;
+	float:right;
+}
+
+.action-icon:hover {
+	color: #245580;
+}
+
 /* CSS AJAX loader from: http://tobiasahlin.com/spinkit/ */
 .sk-circle {
 	width: 27px;

@@ -228,8 +228,9 @@ class ListController extends Controller {
 		$reserved_labels = array_map('strtolower', config('constants.list_categories'));
 		foreach($labels as $label) {
 			$validator = Validator::make(array('label' => strtolower($label)), [
-				'label' => 'alpha_num_space|min:2|max:20|not_in:' . implode(",", $reserved_labels),
+				'label' => 'valid_charset|min:2|max:20|not_in:' . implode(",", $reserved_labels),
 			], [
+				'valid_charset' => 'Label "'.$label.'" contains invalid characters.',
 				'not_in' => 'Label "'.$label.'" cannot take the name of a category.',
 			]);
 			if ($validator->fails()) {
@@ -374,8 +375,9 @@ class ListController extends Controller {
 		$reserved_labels = array_map('strtolower', config('constants.list_categories'));
 		foreach($labels as $label) {
 			$validator = Validator::make(array('label' => strtolower($label)), [
-				'label' => 'alpha_num_space|min:2|max:20|not_in:' . implode(",", $reserved_labels),
+				'label' => 'valid_charset|min:2|max:20|not_in:' . implode(",", $reserved_labels),
 			], [
+				'valid_charset' => 'Label "'.$label.'" contains invalid characters.',
 				'not_in' => 'Label "'.$label.'" cannot take the name of a category.',
 			]);
 			if ($validator->fails()) {

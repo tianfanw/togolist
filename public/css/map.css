@@ -46,23 +46,15 @@
     cursor: pointer;
 }
 
-.location-name .delete,.save{
-    color: #001569;
-    float:right;
-}
-
 .location-name:hover {
-    background: #fff;
+    background: #bbb;
     color: #001569;
     font-weight: 700;
 }
 
-.location-name:hover .delete,.save{
-    margin-top: 4px;
-}
-
-.location-name .delete:hover,.save:hover{
-    color: #245580;
+.location-name.active {
+    background: #fff;
+    color: #001569;
 }
 
 #location-name-list .hint {
@@ -72,12 +64,17 @@
 }
 .transparent {
     margin-top: -10px;
+    margin-left: -2px;
     height: 100%;
 }
 
 .place-info-window {
     position:relative;
     min-height: 100%;
+}
+
+.place-info-window h5 {
+    margin-bottom: 0;
 }
 
 .place-info-window .bottom-links {
@@ -99,3 +96,12 @@
 .place-info-window .bottom-links a:hover {
     color: #ddd;
 }
+
+#location-name-list table {
+    width: 100%;
+}
+
+#location-name-list td {
+    padding: 5px 10px;
+}
+

@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider {
 		{
 			return preg_match('/^[\pL\pN\s]+$/u', $value);
 		});
+		Validator::extend('valid_charset', function($attribute, $value)
+		{
+			return preg_match('/^[\pL\pN\s-_.&]+$/u', $value);
+		});
 	}
 
 	/**

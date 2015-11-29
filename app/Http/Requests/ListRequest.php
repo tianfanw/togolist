@@ -25,13 +25,13 @@ class ListRequest extends Request {
 		$list_id = $this->route('list');
 		if($list_id) {
 			return [
-				'name' => 'required|min:3|max:30|alpha_num_space|unique:location_lists,name,'.$list_id,
+				'name' => 'required|min:3|max:30|valid_charset|unique:location_lists,name,'.$list_id,
 				'category' => 'required|in:'.implode(",",config('constants.list_categories')),
 				'private' => 'required|boolean',
 			];
 		} else {
 			return [
-				'name' => 'required|min:3|max:30|alpha_num_space|unique:location_lists',
+				'name' => 'required|min:3|max:30|valid_charset|unique:location_lists',
 				'category' => 'required|in:'.implode(",",config('constants.list_categories')),
 				'private' => 'required|boolean',
 			];

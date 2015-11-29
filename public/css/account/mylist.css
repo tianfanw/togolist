@@ -22,27 +22,35 @@
     color: #fff;
     height: 100%;
     overflow-y: auto;
-    padding: 0 20px;
+    padding: 0;
 }
 
 #list-wrapper p {
     font-size: 14px;
 }
 
-#list-wrapper div {
+#list-wrapper table {
+    width: 100%;
+}
+
+#list-wrapper tr {
     margin-bottom: 10px;
     padding-left: 5px;
     cursor: pointer;
 }
 
-#list-wrapper div:hover {
+#list-wrapper tr:hover {
     background: #bbb;
     color: #001569;
 }
 
-#list-wrapper div.active {
+#list-wrapper tr.active {
     background: #fff;
     color: #001569;
+}
+
+#list-wrapper td {
+    padding: 5px 10px;
 }
 
 #content-wrapper {

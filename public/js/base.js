@@ -92,6 +92,7 @@ function flash(message, is_important, is_error) {
     }
 }
 
+var invalid_charset = '<>=\/\\:*!?"|';
 /**
  * Text input validation
  * @param str
@@ -107,29 +108,39 @@ function validateInput(str, rules, callback) {
                 var alphabet = (charsets.indexOf('alphabet') != -1);
                 var numeric =  (charsets.indexOf('numeric') != -1);
                 var space = (charsets.indexOf('space') != -1);
-                var isValid = true;
-                for(var i = 0; i < str.length; i++) {
-                    if(str[i] == ' ') {
-                        if(!space) {
-                            isValid = false;
+                var valid_charset = (charsets.indexOf('valid_charset') != -1);
+                var is_valid = true;
+                if(valid_charset) {
+                    for(var i = 0; i < str.length; i++) {
+                        if(invalid_charset.indexOf(str[i]) != -1) {
+                            is_valid = false;
                             break;
                         }
-                    } else if(str[i] >= '0' && str[i] <= '9') {
-                        if(!numeric) {
-                            isValid = false;
+                    }
+                } else {
+                    for (var i = 0; i < str.length; i++) {
+                        if (str[i] == ' ') {
+                            if (!space) {
+                                is_valid = false;
+                                break;
+                            }
+                        } else if (str[i] >= '0' && str[i] <= '9') {
+                            if (!numeric) {
+                                is_valid = false;
+                                break;
+                            }
+                        } else if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
+                            if (!alphabet) {
+                                is_valid = false;
+                                break;
+                            }
+                        } else {
+                            is_valid = false;
                             break;
                         }
-                    } else if( (str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') ) {
-                        if(!alphabet) {
-                            isValid = false;
-                            break;
-                        }
-                    } else {
-                        isValid = false;
-                        break;
                     }
                 }
-                if(!isValid) {
+                if(!is_valid) {
                     err = "The input cannot contain special characters.";
                 }
                 break;

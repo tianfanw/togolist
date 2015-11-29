@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="inline-label">List Name:</label>
                 <div class="input-wrapper">
-                    <input type="text" pattern="[a-zA-Z0-9 ]{2,30}" class="form-control" style="width: 95%"
+                    <input type="text" pattern='[^<>=\/\\:*!?"|]{2,30}' class="form-control" style="width: 95%"
                            placeholder="Up to 30 Characters" name="name" value="{{ isset($loc_list) ? $loc_list['name'] : old('name') }}" required>
                 </div>
             </div>
@@ -103,6 +103,7 @@
             <div id="map-wrapper" style="margin-top: 8px;">
                 <div id="location-name-list">
                     <div class="hint">Search to add locations here...</div>
+                    <table><tbody></tbody></table>
                 </div>
                 <div style="overflow:hidden;">
                     <input id="map-input" class="controls" type="text" placeholder="Search a location">

@@ -38,6 +38,7 @@
             <div id="map-wrapper">
                 <div id="location-name-list">
                     <div class="hint">Search to add locations here...</div>
+                    <table><tbody></tbody></table>
                 </div>
                 <div style="overflow:hidden;">
                     <input id="map-input" class="controls" type="text" placeholder="Search a location">

@@ -48,7 +48,7 @@ $(document).ready(function() {
         var label = $(this).prev().val().trim();
         var $label_edit = $(this).parent();
         validateInput(label, {
-            charset: 'alphabet|numeric|space',
+            charset: 'alphabet|numeric|space|punctuation',
             min: 2,
             max: 20
         }, function(err) {

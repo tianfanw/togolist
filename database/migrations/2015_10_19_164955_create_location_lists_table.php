@@ -30,6 +30,7 @@ class CreateLocationListsTable extends Migration {
 			$table->boolean('private')->default(false);
 
 			// List counters
+			$table->integer('location_count')->default(0);
 			$table->integer('like_count')->default(0);
 			$table->integer('view_count')->default(0);
 			$table->integer('share_count')->default(0);
